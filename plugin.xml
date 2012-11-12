@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="java.lang.Object"
+            id="flexmodule.contribution1"  >
+            <visibility>
+                <or> 
+                        <objectClass
+                              name="org.eclipse.core.resources.IFolder" >
+                        </objectClass >
+                        <and>
+	                             <objectClass
+	                              name="org.eclipse.core.resources.IFile" >
+	                       		 </objectClass >
+	                       		 <or>
+		                       		  <objectState
+		                                 name="extension"  value="as">
+		                           	 </objectState>
+		                           	  <objectState
+		                                 name="extension"  value="swc">
+		                           	 </objectState>
+	                       		 </or>
+                        </and>
+                </or>
+            </visibility>
+	      <action
+               class="flexmodule.popup.actions.FlexMoudleAction"
+               enablesFor="1"
+               id="flexmodule.FlexModuleAction"
+               label="不可用"
+               menubarPath="additions"
+               icon="icon/module.gif" 
+               >
+         </action>
+           <action
+               class="flexmodule.popup.actions.FlexCopePathAction"
+               enablesFor="1"
+               id="flexmodule.FlexModuleAction"
+               label="复制完整类路径"
+               menubarPath="additions"
+               icon="icon/module.gif" 
+               >
+               <enablement>
+                  <objectState
+		              name="extension"  value="as" />
+               </enablement>
+         </action>
+      </objectContribution>
+   </extension>
+ 	<extension
+ 	      point="org.eclipse.ui.startup">
+     <startup class="flexmodule.startup.FlexModuleStartUp"></startup>
+ 	</extension>
+</plugin>
