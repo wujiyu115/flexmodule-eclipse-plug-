@@ -191,4 +191,22 @@ public class ActionScriptPropertiesDeal implements IActionScriptPropertiesDeal {
 		}
 	}
 
+	@Override
+	public Boolean isApplication(IProject project, IResource selectFile) {
+		if (!(selectFile instanceof IFile))
+			return false;
+		IFile file = (IFile) selectFile;
+		Boolean asreal = setProject(project);
+		if (!asreal)
+			return false;
+		ActonScriptPropertiesVo currentInfo = currentpropertiesInfo
+				.getAsproperties();
+		String sourcePath = file.getProjectRelativePath().toOSString()
+				.replaceAll("\\\\", "/");
+		if (null != sourcePath) {
+			return currentInfo.isApplication(sourcePath);
+		}
+		return false;
+	}
+
 }

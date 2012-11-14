@@ -18,5 +18,6 @@ public interface ActonScriptPropertiesConst {
 	public static final String ADD_LIB_DESC = "添加到库";
 	public static final String REMOVE_LIB_DESC = "从库移除";
 	public static final String NOTHING_DESC = "不可用";
+	public static final String IS_APPLICATION_DESC = "(是主程序)不可用";
 
 }

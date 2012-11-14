@@ -18,5 +18,7 @@ public interface IActionScriptPropertiesDeal {
 	public Boolean hasModule(IProject project, IResource selectFile);
 
 	public Boolean hasLib(IProject project, IResource selectFile);
+	
+	public Boolean isApplication(IProject project, IResource selectFile);
 
 }

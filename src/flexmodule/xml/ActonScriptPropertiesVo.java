@@ -13,6 +13,7 @@ public class ActonScriptPropertiesVo {
 	private Element compiler;
 	private Attribute sourceFolderPath;
 	private Attribute mainApplicationPath;
+	private Element apps;
 
 	public ActonScriptPropertiesVo() {
 		super();
@@ -28,6 +29,14 @@ public class ActonScriptPropertiesVo {
 		this.compiler = compiler;
 		this.sourceFolderPath = sourceFolderPath;
 		this.mainApplicationPath = mainApplicationPath;
+	}
+	
+	public Element getApps() {
+		return apps;
+	}
+
+	public void setApps(Element apps) {
+		this.apps = apps;
 	}
 
 	public Document getDoc() {
@@ -165,5 +174,20 @@ public class ActonScriptPropertiesVo {
 		}
 		return false;
 	}
+	
+	public Boolean isApplication(String appPath){
+		String sourceFolder = sourceFolderPath.getStringValue();
+		String mainApplicationPathStr ;
+		List<Element> eleList  =apps.elements("application");
+		for (Element element : eleList) {
+			Attribute att = element.attribute("path");
+			mainApplicationPathStr=sourceFolder + "/"+att.getStringValue();
+			if(appPath.equals(mainApplicationPathStr))
+				return true;
+		}
+		return false;
+	}
+
+	
 
 }

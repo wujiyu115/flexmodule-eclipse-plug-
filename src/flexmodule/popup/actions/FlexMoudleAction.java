@@ -78,6 +78,12 @@ public class FlexMoudleAction implements IObjectActionDelegate {
 					}
 				} else if (filename
 						.endsWith(ActonScriptPropertiesConst.EXTENTION_AS)) {
+					//是主程序不能设置为模块
+					if(asdeal.isApplication(selectProject, selectFile)){
+						doAction = ActonScriptPropertiesConst.NOTHING;
+						action.setText(ActonScriptPropertiesConst.IS_APPLICATION_DESC);
+						return;
+					}
 					Boolean hasmodule = asdeal.hasModule(selectProject,
 							selectFile);
 					if (hasmodule) {

@@ -40,6 +40,7 @@ public class ActionScriptPropertiesReadWrite {
 		aspropertiesVo.setDoc(doc);
 		aspropertiesVo.setRoot(root);
 		aspropertiesVo.setModules(modules);
+		aspropertiesVo.setApps(root.element("applications"));
 		aspropertiesVo.setCompiler(compiler);
 		aspropertiesVo.setSourceFolderPath(sourceFolderPath);
 		aspropertiesVo.setMainApplicationPath(mainApplicationPath);
